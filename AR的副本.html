@@ -1,0 +1,124 @@
+<html>
+<head>
+  <title>Encrypting</title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+
+<body>
+  <py-script> 
+def UEC(a):
+    s = ''
+    te = ''
+    i = ''
+    dic = {1: 'a',
+               2: 'b',
+               3: 'c',
+               4: 'd',
+               5: 'e',
+               6: 'f',
+               7: 'g',
+               8: 'h',
+               9: 'i',
+               0: 'j'}
+    a = a.split('/')
+    print(a)
+    for i_d in a:
+        te=''
+        i_d = list(i_d)
+        print(i_d)
+        for i in i_d:
+            print(i_d)
+            for i_k, i_v in dic.items():
+                if i_v == i:
+                    te = te + str(i_k)
+                    print(str(i_k))
+                    print(te)
+                    print(i_v)
+        i = int(te)
+        print(i)
+        i = chr(i)
+        s = s + i
+    return s
+def unencrypt(a):
+    dic = {'a': '00001',
+           'b': '00010',
+           'c': '00011',
+           'd': '00100',
+           'e': '00101',
+           'f': '00110',
+           'g': '00111',
+           'h': '01000',
+           'i': '01001',
+           'j': '01010',
+           '/': '11111'}
+    import re
+    ues = a
+    st2 = re.findall(r'.{5}', ues)
+    b = ''
+    for item in st2:
+        for key, value in dic.items():
+            if item == value:
+                b = b + key
+    return b
+def ec(a):
+    dic = {1: 'a',
+           2: 'b',
+           3: 'c',
+           4: 'd',
+           5: 'e',
+           6: 'f',
+           7: 'g',
+           8: 'h',
+           9: 'i',
+           0: 'j'}
+    a = list(a)
+    te = ''
+    for i in a:
+        b = str(ord(i))
+        b = list(b)
+        for i_d in b:
+            for i_k, i_v in dic.items():
+                if str(i_k) == i_d:
+                    te = te + i_v
+        te = te + '/'
+    te=te[:-1]
+    return te
+def encrypt(a):
+    dic = {'a': '00001',
+           'b': '00010',
+           'c': '00011',
+           'd': '00100',
+           'e': '00101',
+           'f': '00110',
+           'g': '00111',
+           'h': '01000',
+           'i': '01001',
+           'j': '01010',
+           '/': '11111'}
+    b = ''
+    a = a.lower()
+    a = list(a)
+
+    for t in a:
+        for key, value in dic.items():
+            if t == key:
+                b = b + value
+    return b
+def dnb(b):
+    print(encrypt(ec(b)))
+def dnba(b):
+    print(UEC(unencrypt(b)))
+a = input()
+b = input()
+if a == '加密':
+    dnb(b)
+elif a == '解密':
+    dnba(b)
+
+ </py-script>
+
+ </script>
+ 
+</body>
+</html>
